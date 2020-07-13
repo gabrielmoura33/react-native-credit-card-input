@@ -96,7 +96,7 @@ export default class CardView extends Component {
     imageBack: PropTypes.number,
     customIcons: PropTypes.object,
 
-    colors: PropTypes.array
+    bgColor: PropTypes.string,
   };
 
   static defaultProps = {
@@ -115,7 +115,7 @@ export default class CardView extends Component {
   render() {
     const { focused,
       brand, name, number, expiry, cvc, customIcons,
-      placeholder, colors, imageBack, scale, fontFamily } = this.props;
+      placeholder, bgColor, imageBack, scale, fontFamily } = this.props;
 
     const Icons = { ...defaultIcons, ...customIcons };
     const isAmex = brand === "american-express";
@@ -128,7 +128,7 @@ export default class CardView extends Component {
     ] };
 
     return (
-      <LinearGradient colors={colors} style={[s.cardContainer, containerSize]}>
+      <View style={[s.cardContainer, containerSize, { backgroundColor: bgColor }]}>
         <FlipCard style={{ borderWidth: 0 }}
           flipHorizontal
           flipVertical={false}
@@ -164,7 +164,7 @@ export default class CardView extends Component {
               </Text>
           </View>
         </FlipCard>
-      </LinearGradient>
+      </View>
     );
   }
 }
