@@ -979,6 +979,11 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
+linear-gradient@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/linear-gradient/-/linear-gradient-1.0.6.tgz#4d7e220ddc48877e5b2c6a94ea170c066826bef2"
+  integrity sha512-ogM9DW9Zu9opIri7edn/2qROr2lZRtogkGWs/7aOi9QkKqQhfC3MjvwddWFTF7y4ezRDgYyP7+QlkWIV8kyITA==
+
 lodash._baseassign@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz#8c38a099500f215ad09e59f1722fd0c52bfe0a4e"

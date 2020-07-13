@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import LinearGradient from "react-native-linear-gradient";
+
 import {
   View,
-  ImageBackground,
   Image,
   Text,
   StyleSheet,
@@ -17,7 +18,6 @@ const BASE_SIZE = { width: 300, height: 190 };
 const s = StyleSheet.create({
   cardContainer: {
     borderRadius: 12,
-    backgroundColor: '#3377B6'
   },
   cardFace: {},
   icon: {
@@ -95,27 +95,27 @@ export default class CardView extends Component {
     imageFront: PropTypes.number,
     imageBack: PropTypes.number,
     customIcons: PropTypes.object,
+
+    colors: PropTypes.array
   };
 
   static defaultProps = {
     name: "",
     placeholder: {
       number: "•••• •••• •••• ••••",
-      name: "FULL NAME",
+      name: "NOME COMPLETO",
       expiry: "••/••",
       cvc: "•••",
     },
 
     scale: 1,
     fontFamily: Platform.select({ ios: "Courier", android: "monospace" }),
-    imageFront: require("../images/card-front.png"),
-    imageBack: require("../images/card-back.png"),
   };
 
   render() {
     const { focused,
       brand, name, number, expiry, cvc, customIcons,
-      placeholder, imageFront, imageBack, scale, fontFamily } = this.props;
+      placeholder, colors, imageBack, scale, fontFamily } = this.props;
 
     const Icons = { ...defaultIcons, ...customIcons };
     const isAmex = brand === "american-express";
@@ -128,7 +128,7 @@ export default class CardView extends Component {
     ] };
 
     return (
-      <View style={[s.cardContainer, containerSize]}>
+      <LinearGradient colors={colors} style={[s.cardContainer, containerSize]}>
         <FlipCard style={{ borderWidth: 0 }}
           flipHorizontal
           flipVertical={false}
@@ -164,7 +164,7 @@ export default class CardView extends Component {
               </Text>
           </View>
         </FlipCard>
-      </View>
+      </LinearGradient>
     );
   }
 }
