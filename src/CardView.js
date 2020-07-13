@@ -15,7 +15,10 @@ import FlipCard from "react-native-flip-card";
 const BASE_SIZE = { width: 300, height: 190 };
 
 const s = StyleSheet.create({
-  cardContainer: {},
+  cardContainer: {
+    borderRadius: 12,
+    backgroundColor: '#3377B6'
+  },
   cardFace: {},
   icon: {
     position: "absolute",
@@ -133,8 +136,7 @@ export default class CardView extends Component {
           perspective={2000}
           clickable={false}
           flip={shouldFlip}>
-          <ImageBackground style={[BASE_SIZE, s.cardFace, transform]}
-            source={imageFront}>
+          <View style={[BASE_SIZE, s.cardFace, transform]}>
               <Image style={[s.icon]}
                 source={Icons[brand]} />
               <Text style={[s.baseText, { fontFamily }, s.number, !number && s.placeholder, focused === "number" && s.focused]}>
@@ -154,13 +156,13 @@ export default class CardView extends Component {
                   <Text style={[s.baseText, { fontFamily }, s.amexCVC, !cvc && s.placeholder, focused === "cvc" && s.focused]}>
                     { !cvc ? placeholder.cvc : cvc }
                   </Text> }
-          </ImageBackground>
-          <ImageBackground style={[BASE_SIZE, s.cardFace, transform]}
+          </View>
+          <View style={[BASE_SIZE, s.cardFace, transform]}
             source={imageBack}>
               <Text style={[s.baseText, s.cvc, !cvc && s.placeholder, focused === "cvc" && s.focused]}>
                 { !cvc ? placeholder.cvc : cvc }
               </Text>
-          </ImageBackground>
+          </View>
         </FlipCard>
       </View>
     );
