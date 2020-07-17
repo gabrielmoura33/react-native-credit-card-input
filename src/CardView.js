@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import LinearGradient from "react-native-linear-gradient";
 
 import {
   View,
