@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {
   View,
   Image,
+  ImageBackground,
   Text,
   StyleSheet,
   Platform,
@@ -127,8 +128,8 @@ export default class CardView extends Component {
     ] };
 
     return (
-      <View style={[s.cardContainer, containerSize, { backgroundColor: bgColor }]}>
-        <FlipCard style={{ borderWidth: 0 }}
+      <View style={[s.cardContainer, containerSize, ]}>
+        <FlipCard style={{ borderWidth: 0, backgroundColor: bgColor, borderRadius: 12 }}
           flipHorizontal
           flipVertical={false}
           friction={10}
@@ -156,12 +157,12 @@ export default class CardView extends Component {
                     { !cvc ? placeholder.cvc : cvc }
                   </Text> }
           </View>
-          <View style={[BASE_SIZE, s.cardFace, transform]}
+          <ImageBackground style={[BASE_SIZE, s.cardFace, transform]}
             source={imageBack}>
               <Text style={[s.baseText, s.cvc, !cvc && s.placeholder, focused === "cvc" && s.focused]}>
                 { !cvc ? placeholder.cvc : cvc }
               </Text>
-          </View>
+          </ImageBackground>
         </FlipCard>
       </View>
     );
